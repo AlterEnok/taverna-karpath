@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-main: "Ubuntu Sans Mono", monospace;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-main);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
