@@ -5,9 +5,7 @@
     padding-top: clamp(120px, 14vw, 160px);
     padding-bottom: clamp(60px, 10vw, 120px);
 
-    /* background: linear-gradient(180deg,
-            #d9d2c5 0%,
-            #e7e0d4 100%); */
+
 
     overflow: hidden;
 
@@ -38,7 +36,7 @@
 
 .hero__title span {
 
-    color: #7a8f6a;
+    color: var(--hero-text);
 
 }
 
@@ -98,15 +96,15 @@
 
 .hero__btn--catalog {
 
-    background: #8e9f7a;
-    color: white;
+    background: var(--hero-btn-catalog);
+    color: var(--white);
 
 }
 
 .hero__btn--contact {
 
-    background: #d18963;
-    color: white;
+    background: var(--hero-btn-contact);
+    color: var(--white);
 
 }
 
@@ -121,7 +119,7 @@
 .hero__image img {
 
     width: 100%;
-    max-width: clamp(300px, 60vw, 800px);
+    max-width: clamp(320px, 85vw, 1000px);
 
     border-radius: clamp(18px, 3vw, 24px);
 
@@ -135,7 +133,7 @@
 
     width: clamp(30px, 5vw, 60px);
 
-    animation: float 6s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
 
     opacity: .9;
 
@@ -159,7 +157,7 @@
 
 .hero__pill {
 
-    top: 12%;
+    top: 10%;
     right: 40%;
 
     width: clamp(40px, 6vw, 70px);
@@ -226,7 +224,7 @@
 
     .hero__image img {
 
-        max-width: clamp(900px, 50vw, 1200px);
+        max-width: clamp(1400px, 50vw, 1400px);
 
     }
 
