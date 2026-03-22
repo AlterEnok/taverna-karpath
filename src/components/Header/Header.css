@@ -10,7 +10,7 @@
     z-index: 1000;
 }
 
-/* базовое состояние */
+
 
 .header__wrapper {
 
@@ -27,7 +27,7 @@
     transition: all 0.35s ease;
 }
 
-/* состояние при скролле */
+
 
 .header--scrolled .header__wrapper {
 
@@ -351,6 +351,76 @@
 /* burger */
 
 /* MEDIA */
+
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+
+    .header {
+        padding-top: clamp(30px, 2vw, 50px);
+    }
+
+    .header__wrapper {
+        gap: clamp(30px, 2vw, 50px);
+        padding: clamp(14px, 1.2vw, 20px) clamp(24px, 2vw, 36px);
+        border-radius: 60px;
+    }
+
+
+    .header__logo-img {
+        height: clamp(80px, 4vw, 110px);
+    }
+
+
+    .header__nav {
+        gap: clamp(10px, 1vw, 18px);
+        padding: clamp(8px, 0.6vw, 12px);
+        border-radius: 50px;
+    }
+
+    .header__nav-btn {
+        font-size: clamp(20px, 1.1vw, 26px);
+        padding: clamp(10px, 0.8vw, 16px) clamp(20px, 1.4vw, 28px);
+        border-radius: 30px;
+    }
+
+    .header__nav-btn--catalog {
+        padding: clamp(10px, 0.8vw, 16px) clamp(26px, 1.8vw, 34px);
+    }
+
+
+    .header__search-input {
+        width: clamp(320px, 18vw, 480px);
+        height: clamp(50px, 3vw, 65px);
+        font-size: clamp(16px, 1vw, 20px);
+        padding: 0 clamp(40px, 2vw, 60px) 0 clamp(18px, 1.2vw, 26px);
+        border-radius: 30px;
+    }
+
+    .header__search-icon {
+        font-size: clamp(18px, 1vw, 22px);
+        right: clamp(12px, 1vw, 18px);
+    }
+
+    /* ACTIONS */
+    .header__actions {
+        gap: clamp(10px, 1vw, 18px);
+    }
+
+    .header__icon-btn {
+        width: clamp(44px, 2.5vw, 60px);
+        height: clamp(44px, 2.5vw, 60px);
+    }
+
+
+    .cart-badge {
+        font-size: clamp(11px, 0.7vw, 14px);
+        min-width: clamp(18px, 1.2vw, 24px);
+        height: clamp(18px, 1.2vw, 24px);
+    }
+}
+
+
+
 
 @media (max-width: 768px) {
 

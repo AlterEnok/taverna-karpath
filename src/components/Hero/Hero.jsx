@@ -9,11 +9,19 @@ import bg from "../../assets/hero-bg.png"
 function Hero() {
     return (
         <section className="hero">
-            {/* floating items */}
 
-            <img src={leaf} className="hero__floating hero__leaf1" />
-            <img src={sosna} className="hero__floating hero__leaf2" />
+
+            <img src={sosna} className="hero__floating hero__leaf1" />
+            <img src={leaf} className="hero__floating hero__leaf2" />
             <img src={pill} className="hero__floating hero__pill" />
+
+            <img src={leaf} className="hero__floating hero__leaf3" />
+
+
+
+
+            <img src={sosna} className="hero__floating hero__leaf6" />
+            <img src={pill} className="hero__floating hero__pill3" />
 
             <div className="hero__container">
                 <h1 className="hero__title">
@@ -36,9 +44,7 @@ function Hero() {
                 </div>
 
                 <div className="hero__image">
-
                     <img src={bg} alt="vitamins" />
-
                 </div>
 
             </div>

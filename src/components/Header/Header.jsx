@@ -5,7 +5,7 @@ import { FiHeart, FiShoppingCart, FiSearch } from "react-icons/fi"
 
 import logo from "../../assets/logo.png"
 
-import { useCart } from "../../context/useCart"   // або твій шлях
+import { useCart } from "../../context/useCart"
 
 function Header() {
     const [scrolled, setScrolled] = useState(false)
@@ -13,7 +13,7 @@ function Header() {
 
     const { cartItems, setIsCartOpen } = useCart()
 
-    // Загальна кількість одиниць товарів (враховуємо qty)
+
     const cartCount = cartItems.reduce((total, item) => total + item.qty, 0)
 
     useEffect(() => {
@@ -45,7 +45,7 @@ function Header() {
                 </div>
 
                 <div className="header__actions">
-                    {/* ... інші іконки якщо є ... */}
+
 
                     <button
                         className="header__icon-btn header__cart-btn"
@@ -58,7 +58,7 @@ function Header() {
                     </button>
                 </div>
 
-                {/* Burger та мобільне меню без змін */}
+
                 <button
                     className={`burger ${menuOpen ? "burger--active" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}

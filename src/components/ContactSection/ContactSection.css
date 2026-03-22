@@ -1,0 +1,315 @@
+.contact-section {
+    padding: clamp(60px, 8vw, 120px) clamp(16px, 5vw, 40px);
+    text-align: center;
+    background: var(--bg-main);
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* .contact-header {
+    margin-bottom: clamp(40px, 6vw, 80px);
+} */
+
+.contact-header {
+    background: var(--hero-text);
+    color: var(--white);
+    padding: clamp(24px, 4vw, 40px) clamp(32px, 5vw, 60px);
+    border-radius: 999px;
+    margin-bottom: clamp(48px, 7vw, 90px);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.contact-title {
+    font-size: clamp(28px, 5vw, 58px);
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 16px 0;
+    line-height: 1.15;
+}
+
+.contact-subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--white);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2vw, 24px);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: clamp(16px, 2.5vw, 22px) clamp(24px, 4vw, 36px);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--green-main);
+    font-size: clamp(16px, 2.2vw, 40px);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+}
+
+
+.contact-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    padding: 2px;
+    background: linear-gradient(90deg, #D99F68, #446945);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-btn:hover::before {
+    opacity: 1;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(68, 105, 69, 0.15);
+}
+
+.contact-icon {
+    width: clamp(28px, 3.5vw, 40px);
+    height: clamp(28px, 3.5vw, 40px);
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--green-main);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-btn:hover .contact-icon,
+.contact-btn:hover .contact-icon-placeholder {
+    transform: scale(1.15);
+}
+
+
+.contact-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contact-btn .arrow {
+    font-size: clamp(20px, 2.8vw, 26px);
+    font-weight: bold;
+    transition: transform 0.35s ease;
+}
+
+.contact-btn:hover .arrow {
+    transform: translateX(8px);
+}
+
+
+.instagram:hover {
+    color: #E1306C;
+}
+
+.telegram:hover {
+    color: #0088cc;
+}
+
+.email:hover {
+    color: var(--orange-btn);
+}
+
+/* ADAPTIVE */
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .contact-section {
+        padding: clamp(100px, 7vw, 180px) clamp(40px, 5vw, 80px);
+    }
+
+    .contact-header {
+        padding: clamp(40px, 3vw, 80px) clamp(60px, 4vw, 120px);
+        border-radius: 120px;
+        max-width: 1400px;
+        box-shadow: 0 16px 64px rgba(0, 0, 0, 0.18);
+    }
+
+    .contact-title {
+        font-size: clamp(48px, 3.5vw, 90px);
+    }
+
+    .contact-subtitle {
+        font-size: clamp(20px, 1.6vw, 32px);
+        max-width: 1000px;
+    }
+
+    .contact-buttons {
+        max-width: 720px;
+        gap: clamp(28px, 2vw, 48px);
+    }
+
+    .contact-btn {
+        padding: clamp(28px, 2vw, 48px) clamp(48px, 3vw, 80px);
+        font-size: clamp(22px, 1.5vw, 36px);
+        border-radius: 120px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-icon {
+        width: clamp(48px, 3vw, 80px);
+        height: clamp(48px, 3vw, 80px);
+    }
+
+    .contact-btn .arrow {
+        font-size: clamp(32px, 2.2vw, 52px);
+    }
+
+    .contact-btn:hover .arrow {
+        transform: translate(12px, -12px) scale(1.25);
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .contact-header {
+        padding: clamp(28px, 5vw, 48px) clamp(32px, 6vw, 60px);
+        border-radius: 80px;
+        max-width: 90%;
+    }
+
+    .contact-title {
+        font-size: clamp(32px, 6vw, 48px);
+    }
+
+    .contact-subtitle {
+        font-size: clamp(16px, 3vw, 20px);
+    }
+
+    .contact-buttons {
+        max-width: 100%;
+        gap: 20px;
+    }
+
+    .contact-btn {
+        padding: clamp(18px, 4vw, 28px) clamp(32px, 6vw, 48px);
+        font-size: clamp(18px, 3.5vw, 24px);
+    }
+
+    .contact-icon {
+        width: clamp(36px, 5vw, 52px);
+        height: clamp(36px, 5vw, 52px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: clamp(50px, 10vw, 90px) clamp(16px, 5vw, 32px);
+    }
+
+    .contact-header {
+        padding: clamp(24px, 6vw, 40px) clamp(28px, 7vw, 48px);
+        border-radius: 60px;
+        margin-bottom: clamp(40px, 8vw, 70px);
+    }
+
+    .contact-title {
+        font-size: clamp(28px, 8vw, 40px);
+        line-height: 1.2;
+    }
+
+    .contact-subtitle {
+        font-size: clamp(15px, 4vw, 18px);
+    }
+
+    .contact-btn {
+        padding: clamp(16px, 5vw, 24px) clamp(24px, 7vw, 40px);
+        font-size: clamp(16px, 4.5vw, 20px);
+        border-radius: 60px;
+    }
+
+    .contact-icon {
+        width: clamp(32px, 6vw, 44px);
+        height: clamp(32px, 6vw, 44px);
+    }
+
+    .contact-btn .arrow {
+        font-size: clamp(20px, 5vw, 26px);
+    }
+}
+
+
+@media (max-width: 430px) {
+    .contact-section {
+        padding: clamp(40px, 12vw, 70px) clamp(12px, 6vw, 24px);
+    }
+
+    .contact-header {
+        padding: clamp(20px, 7vw, 32px) clamp(20px, 8vw, 36px);
+        border-radius: 50px;
+    }
+
+    .contact-title {
+        font-size: clamp(24px, 9vw, 32px);
+    }
+
+    .contact-subtitle {
+        font-size: clamp(14px, 4.5vw, 16px);
+    }
+
+    .contact-btn {
+        padding: clamp(14px, 6vw, 20px) clamp(20px, 8vw, 32px);
+        font-size: clamp(15px, 5vw, 18px);
+        border-radius: 50px;
+    }
+
+    .contact-icon {
+        width: clamp(28px, 7vw, 38px);
+        height: clamp(28px, 7vw, 38px);
+    }
+}
+
+
+@media (max-width: 360px) {
+    .contact-title {
+        font-size: clamp(22px, 9.5vw, 28px);
+    }
+
+    .contact-subtitle {
+        font-size: clamp(13px, 5vw, 15px);
+    }
+
+    .contact-btn {
+        padding: clamp(12px, 7vw, 18px) clamp(16px, 9vw, 28px);
+        font-size: clamp(14px, 5.5vw, 17px);
+    }
+
+    .contact-icon {
+        width: clamp(24px, 8vw, 34px);
+        height: clamp(24px, 8vw, 34px);
+    }
+
+    .contact-btn .arrow {
+        font-size: clamp(18px, 6vw, 24px);
+    }
+}
