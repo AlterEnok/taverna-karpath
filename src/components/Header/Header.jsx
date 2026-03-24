@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Header.css"
+import { useNavigate } from "react-router-dom"
 
 import { FiHeart, FiShoppingCart, FiSearch } from "react-icons/fi"
 
@@ -8,6 +9,7 @@ import logo from "../../assets/logo.png"
 import { useCart } from "../../context/useCart"
 
 function Header() {
+    const navigate = useNavigate()
     const [scrolled, setScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
 
@@ -36,7 +38,12 @@ function Header() {
                 <nav className="header__nav">
                     <button className="header__nav-btn">Про мене</button>
                     <button className="header__nav-btn">Контакти</button>
-                    <button className="header__nav-btn header__nav-btn--catalog">Каталог</button>
+                    <button
+                        className="header__nav-btn header__nav-btn--catalog"
+                        onClick={() => navigate("/catalog")}
+                    >
+                        Каталог
+                    </button>
                 </nav>
 
                 <div className="header__search">
