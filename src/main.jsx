@@ -8,6 +8,7 @@ import App from './App.jsx'
 
 import { CartProvider } from "./context/CartContext"
 import "@fontsource/ubuntu-sans-mono"
+import "@fontsource-variable/tektur";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

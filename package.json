@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/tektur": "^5.2.7",
     "@fontsource/ubuntu-sans-mono": "^5.2.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
