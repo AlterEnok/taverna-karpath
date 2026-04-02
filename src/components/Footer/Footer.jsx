@@ -1,6 +1,9 @@
 import "./Footer.css";
 import logo from "../../assets/logo.png";
 
+import visa from "../../assets/icons/visa.svg";
+import mastercard from "../../assets/icons/mastercard.svg";
+
 function Footer() {
     return (
         <footer className="footer">
@@ -27,7 +30,7 @@ function Footer() {
 
                 <div className="footer-info">
                     <div className="footer-links">
-                        <a href="/terms" className="footer-link-small">Умови використання</a>
+                        <a href="/terms" className="footer-link-small">Договір публічної оферти</a>
                         <a href="/return" className="footer-link-small">Повернення та обмін</a>
                         <a href="/privacy" className="footer-link-small">Політика конфіденційності</a>
                         <a href="/certificates" className="footer-link-small">Сертифікати</a>
@@ -44,19 +47,27 @@ function Footer() {
                     </div>
                 </div>
 
-                <div className="footer-copyright-wrapper">
-                    <div className="footer-copyright">
-                        <p>
-                            © Vitaminka.2026. All rights reserved. Designed by{" "}
-                            <a
-                                href="https://www.novateamweb.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="designed-link"
-                            >
-                                NovaTeam
-                            </a>
-                        </p>
+                <div className="footer-bottom">
+                    <div className="footer-copyright-wrapper">
+                        <div className="footer-copyright">
+                            <p>
+                                © Vitaminka.2026. All rights reserved. Designed by{" "}
+                                <a
+                                    href="https://www.novateamweb.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="designed-link"
+                                >
+                                    NovaTeam
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div className="footer-payments">
+                        <img src={visa} alt="Visa" />
+                        <img src={mastercard} alt="Mastercard" />
                     </div>
                 </div>
 

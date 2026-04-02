@@ -9,6 +9,19 @@ function ProductCard({ product }) {
 
     const isInCart = cartItems.some(item => item.id === product.id)
 
+    // Додавання в кошик + відразу перехід на чекаут
+    const handleBuyNow = (e) => {
+        e.stopPropagation();           // щоб не переходило на сторінку товару
+        addToCart(product);            // додаємо товар (qty = 1)
+        navigate("/checkout");         // відразу йдемо на чекаут
+    }
+
+    // Перехід на сторінку товару при кліку на карточку
+    const handleNavigate = () => {
+        navigate(`/product/${product.id}`)
+    }
+
+    // Додавання/видалення тільки через зелену кнопку
     const handleToggle = (e) => {
         e.stopPropagation()
 
@@ -17,10 +30,6 @@ function ProductCard({ product }) {
         } else {
             addToCart(product)
         }
-    }
-
-    const handleNavigate = () => {
-        navigate(`/product/${product.id}`)
     }
 
     return (
@@ -40,10 +49,7 @@ function ProductCard({ product }) {
 
                     <button
                         className="buy-btn"
-                        onClick={(e) => {
-                            e.stopPropagation()
-                            navigate(`/product/${product.id}`)
-                        }}
+                        onClick={handleBuyNow}
                     >
                         Купити зараз
                     </button>

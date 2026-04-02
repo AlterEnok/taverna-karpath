@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "./Catalog.css"
 import products from "../../data/products"
 import Header from "../../components/Header/Header"
@@ -10,8 +10,9 @@ function Catalog() {
     const [showAll, setShowAll] = useState(false)
     const [activeCategory, setActiveCategory] = useState("Усі")
     const [currentPage, setCurrentPage] = useState(1)
-
     const [animateKey, setAnimateKey] = useState(0)
+
+    const gridRef = useRef(null) // ✅ главный фикс
 
     const categories = [
         "Усі",
@@ -43,10 +44,27 @@ function Catalog() {
         return products.filter(p => p.category === category).length
     }
 
+    const scrollToGrid = () => {
+        if (!gridRef.current) return
+
+        const yOffset = -100 // 🔥 подстрой под свой хедер
+        const y =
+            gridRef.current.getBoundingClientRect().top +
+            window.pageYOffset +
+            yOffset
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth"
+        })
+    }
+
     const handleCategoryClick = (cat) => {
         setActiveCategory(cat)
         setCurrentPage(1)
         setAnimateKey(prev => prev + 1)
+
+        setTimeout(scrollToGrid, 50) // ✅ сразу к товарам
     }
 
     const changePage = (page) => {
@@ -55,13 +73,7 @@ function Catalog() {
         setCurrentPage(page)
         setAnimateKey(prev => prev + 1)
 
-
-        setTimeout(() => {
-            document.querySelector(".catalog__grid")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            })
-        }, 100)
+        setTimeout(scrollToGrid, 50) // ✅ идеальный скролл
     }
 
     return (
@@ -88,8 +100,12 @@ function Catalog() {
 
                     <div className="catalog__content">
 
-
-                        <div key={animateKey} className="catalog__grid animate">
+                        {/* ✅ ВАЖНО: ref тут */}
+                        <div
+                            ref={gridRef}
+                            key={animateKey}
+                            className="catalog__grid animate"
+                        >
                             {paginatedProducts.map(product => (
                                 <ProductCard key={product.id} product={product} />
                             ))}
@@ -152,6 +168,7 @@ function Catalog() {
 
                 </div>
             </section>
+
             <Footer />
         </>
     )

@@ -1,0 +1,159 @@
+.terms {
+    padding: clamp(60px, 8vw, 120px) 20px;
+    background: var(--bg-main);
+}
+
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.terms-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.terms-content {
+    background: white;
+    padding: clamp(20px, 4vw, 40px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.terms-content h2 {
+    margin-top: 20px;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--green-main);
+}
+
+.terms-content p,
+.terms-content li {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.terms-content ul {
+    padding-left: 20px;
+}
+
+/* блок ФОП */
+.terms-company {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 16px;
+    background: #f8f6f2;
+}
+
+/* адаптив */
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .terms-container {
+        max-width: 1200px;
+    }
+
+    .terms-content {
+        padding: 60px;
+        border-radius: 24px;
+    }
+
+    .terms-title {
+        font-size: 48px;
+        margin-bottom: 60px;
+    }
+
+    .terms-content h2 {
+        font-size: 26px;
+    }
+
+    .terms-content p,
+    .terms-content li {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .terms-company {
+        padding: 30px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .terms-container {
+        max-width: 90%;
+    }
+
+    .terms-content {
+        padding: 30px;
+        gap: 14px;
+    }
+
+    .terms-title {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .terms {
+        padding: 60px 15px;
+    }
+
+    .terms-content {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    .terms-content h2 {
+        margin-top: 16px;
+    }
+
+    .terms-company {
+        padding: 18px;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .terms-title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .terms-content {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .terms-content p,
+    .terms-content li {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .terms-company {
+        padding: 16px;
+    }
+}
+
+
+@media (max-width: 350px) {
+    .terms-content {
+        padding: 14px;
+    }
+
+    .terms-title {
+        font-size: 22px;
+    }
+
+    .terms-content p,
+    .terms-content li {
+        font-size: 13px;
+    }
+}

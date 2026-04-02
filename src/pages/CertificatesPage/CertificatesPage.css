@@ -1,0 +1,98 @@
+.certificates {
+    padding: clamp(60px, 8vw, 120px) 20px;
+    background: var(--bg-main);
+    text-align: center;
+}
+
+.certificates-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.certificates-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.certificates-subtitle {
+    font-size: clamp(20px, 1.2vw, 18px);
+    opacity: 0.7;
+    margin-bottom: clamp(30px, 5vw, 60px);
+}
+
+/* 📄 список документов */
+.certificates-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 4vw, 40px);
+}
+
+/* карточка */
+.certificates-item {
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* ❗ ВАЖНО — НЕ РЕЖЕМ */
+.certificates-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* hover */
+.certificates-item:hover {
+    transform: translateY(-5px);
+}
+
+/* ---------- ШИРОКИЕ ЭКРАНЫ ---------- */
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .certificates-container {
+        max-width: 1100px;
+    }
+
+    .certificates-grid {
+        gap: 50px;
+    }
+}
+
+/* ---------- ПЛАНШЕТ ---------- */
+@media (max-width: 1024px) {
+    .certificates-container {
+        max-width: 700px;
+    }
+}
+
+/* ---------- МОБИЛКА ---------- */
+@media (max-width: 767px) {
+    .certificates {
+        padding: 60px 15px;
+    }
+
+    .certificates-title {
+        font-size: 26px;
+    }
+
+    .certificates-subtitle {
+        font-size: 14px;
+    }
+}
+
+/* ---------- МАЛЕНЬКИЕ ---------- */
+@media (max-width: 450px) {
+    .certificates-container {
+        max-width: 100%;
+    }
+}
+
+/* ---------- ОЧЕНЬ МАЛЕНЬКИЕ ---------- */
+@media (max-width: 350px) {
+    .certificates-title {
+        font-size: 22px;
+    }
+}

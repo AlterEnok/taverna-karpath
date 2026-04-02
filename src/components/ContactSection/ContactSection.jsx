@@ -22,7 +22,7 @@ function ContactSection() {
 
                 <div className="contact-buttons">
                     <a
-                        href="https://instagram.com/ваш_акаунт"
+                        href="https://www.instagram.com/vitaminka_av?igsh=OG5tYnF6NncxMzd0"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="contact-btn instagram"
@@ -33,7 +33,7 @@ function ContactSection() {
                     </a>
 
                     <a
-                        href="https://t.me/ваш_канал"
+                        href="https://t.me/vitaminka_av"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="contact-btn telegram"
@@ -44,7 +44,7 @@ function ContactSection() {
                     </a>
 
                     <a
-                        href="mailto:your@email.com"
+                        href="mailto:alona092017@ukr.net"
                         className="contact-btn email"
                     >
                         <img src={emailIcon} alt="Email" className="contact-icon" />

@@ -1,0 +1,199 @@
+.failure {
+    padding: clamp(80px, 10vw, 140px) 20px;
+    background: var(--bg-main);
+    text-align: center;
+}
+
+.failure-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ❌ иконка */
+.failure-icon {
+    width: clamp(80px, 8vw, 100px);
+    height: clamp(80px, 8vw, 100px);
+    margin: 0 auto clamp(20px, 3vw, 30px);
+
+    border-radius: 50%;
+    background: #e53935;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: bold;
+
+    box-shadow: 0 10px 30px rgba(229, 57, 53, 0.3);
+}
+
+.failure-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.failure-subtitle {
+    font-size: clamp(14px, 2vw, 18px);
+    opacity: 0.7;
+    margin-bottom: clamp(24px, 4vw, 30px);
+}
+
+/* BOX */
+.failure-box {
+    background: white;
+    border-radius: 20px;
+    padding: clamp(20px, 4vw, 30px);
+
+    text-align: left;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 2vw, 12px);
+
+    font-size: clamp(14px, 2vw, 16px);
+}
+
+/* кнопки */
+.failure-actions {
+    margin-top: clamp(24px, 4vw, 32px);
+
+    display: flex;
+    gap: clamp(12px, 3vw, 16px);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.failure-btn {
+    padding: clamp(14px, 3vw, 16px) clamp(24px, 5vw, 32px);
+
+    border: none;
+    border-radius: 14px;
+
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+/* retry */
+.failure-btn.retry {
+    background: var(--green-main);
+    color: white;
+}
+
+.failure-btn.retry:hover {
+    transform: translateY(-2px);
+    background: #2e4a2f;
+}
+
+/* secondary */
+.failure-btn.secondary {
+    background: transparent;
+    border: 2px solid #ddd;
+}
+
+.failure-btn.secondary:hover {
+    background: #f5f5f5;
+}
+
+
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+
+    .failure-container {
+        max-width: 900px;
+    }
+
+    .failure-box {
+        padding: clamp(30px, 2vw, 50px);
+        font-size: clamp(18px, 1vw, 22px);
+    }
+
+    .failure-title {
+        font-size: clamp(40px, 2vw, 60px);
+    }
+
+    .failure-icon {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+    }
+
+    .failure-btn {
+        font-size: 18px;
+        padding: 18px 40px;
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+
+    .failure-container {
+        max-width: 500px;
+    }
+
+    .failure-box {
+        font-size: clamp(14px, 2vw, 15px);
+    }
+}
+
+
+
+@media (max-width: 767px) {
+
+    .failure {
+        padding: 60px 16px;
+    }
+
+    .failure-actions {
+        flex-direction: column;
+    }
+
+    .failure-btn {
+        width: 100%;
+    }
+}
+
+
+
+@media (max-width: 450px) {
+
+    .failure-title {
+        font-size: 22px;
+    }
+
+    .failure-subtitle {
+        font-size: 13px;
+    }
+
+    .failure-box {
+        padding: 16px;
+    }
+}
+
+
+
+@media (max-width: 350px) {
+
+    .failure-title {
+        font-size: 20px;
+    }
+
+    .failure-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+
+    .failure-btn {
+        font-size: 13px;
+        padding: 12px;
+    }
+}

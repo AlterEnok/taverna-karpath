@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import "./ProductPage.css";
-
+import { useCart } from "../../context/useCart";
 import products from "../../data/products";
 
 import Header from "../../components/Header/Header";
@@ -13,9 +13,15 @@ function ProductPage() {
 
     const [qty, setQty] = useState(1);
     const [activeTab, setActiveTab] = useState("desc");
-    const [isImageOpen, setIsImageOpen] = useState(false);
+
+    const { addToCart, setIsCartOpen } = useCart();
 
     if (!product) return <h2>Товар не знайдено</h2>;
+
+    const handleBuyNow = () => {
+        addToCart({ ...product, qty });
+        setIsCartOpen(true);
+    };
 
     return (
         <>
@@ -28,22 +34,16 @@ function ProductPage() {
                     </div>
                 </div>
 
-
                 <div className="product__container">
-
-
-
                     <div className="product__main">
 
-
+                        {/* ❌ убрали клик */}
                         <div className="product__image">
                             <img
                                 src={product.image}
                                 alt={product.title}
-                                onClick={() => setIsImageOpen(true)}
                             />
                         </div>
-
 
                         <div className="product__buy-block">
                             <div className="product__price">{product.price} грн</div>
@@ -54,12 +54,14 @@ function ProductPage() {
                                 <button onClick={() => setQty(q => q + 1)}>+</button>
                             </div>
 
-                            <button className="product__btn-buy">
+                            <button
+                                className="product__btn-buy"
+                                onClick={handleBuyNow}
+                            >
                                 Купити зараз
                             </button>
                         </div>
                     </div>
-
 
                     <div className="product__tabs">
                         <button
@@ -85,34 +87,15 @@ function ProductPage() {
                     <div className="product__tab-content">
                         {activeTab === "desc" && (
                             <>
-                                <p>
-                                    ІННОВАЦІЙНА ТА ВИСОКОЕФЕКТИВНА ФОРМУЛА ДЛЯ ЗМІЦНЕННЯ ТА РОСТУ ВОЛОССЯ НА ОСНОВІ ТРАВ, ФІТО-КОМПЛЕКСІВ ТА СПЕЦІАЛЬНИХ АКТИВІВ.
-                                    Зміцнює та відновлює волосся завдяки спеціальним фіто компонентам та комплексам
-                                    (екстракти зеленого чаю, кореню лопуха, яйця, натуральний кератин, нікотинамід та біотин).
-                                </p>
-
-                                <p>
-                                    Олії оливи та авокадо зроблять волосся шовковистим і еластичним, додадуть поступливості неслухняним локонам і полегшать розчісування.
-                                    Протеїни кашеміру та пивних дріжджів забезпечать волоссю щедре підживлення.
-                                    Комплекс-активатор росту Ceramide A2 ідеально відновлює кератиновий шар та помітно зміцнює волосяні фолікули.
-                                </p>
+                                <p>ІННОВАЦІЙНА ТА ВИСОКОЕФЕКТИВНА ФОРМУЛА...</p>
+                                <p>Олії оливи та авокадо зроблять волосся...</p>
                             </>
                         )}
                         {activeTab === "use" && <p>Приймати по 1-2 капсули на день під час їжі.</p>}
                         {activeTab === "comp" && <p>L-карнітин, допоміжні компоненти.</p>}
                     </div>
-
                 </div>
             </section>
-
-
-            {isImageOpen && (
-                <div className="product__modal" onClick={() => setIsImageOpen(false)}>
-                    <div className="product__modal-content" onClick={e => e.stopPropagation()}>
-                        <img src={product.image} alt={product.title} />
-                    </div>
-                </div>
-            )}
 
             <Footer />
         </>

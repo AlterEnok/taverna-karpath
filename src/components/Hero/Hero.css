@@ -73,7 +73,7 @@
     gap: clamp(6px, 1vw, 8px);
 
     transition: transform .2s ease;
-
+    text-decoration: none;
 }
 
 .hero__btn-icon {

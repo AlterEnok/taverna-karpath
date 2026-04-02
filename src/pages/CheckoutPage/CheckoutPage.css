@@ -1,0 +1,292 @@
+.checkout {
+    padding: clamp(60px, 8vw, 120px) clamp(20px, 5vw, 40px);
+    background: var(--bg-main);
+    min-height: 100vh;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: clamp(40px, 6vw, 80px);
+}
+
+/* Інфо-бокс */
+.checkout-info-box {
+    background: var(--white);
+    border-radius: 20px;
+    padding: clamp(20px, 4vw, 32px);
+    margin-bottom: clamp(32px, 5vw, 48px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    font-size: clamp(25px, 1.2vw, 20px);
+}
+
+/* Заголовки секцій */
+.checkout-section-title {
+    font-size: clamp(20px, 3.5vw, 26px);
+    font-weight: 600;
+    color: var(--green-main);
+    margin: clamp(28px, 4vw, 40px) 0 clamp(12px, 2vw, 20px) 0;
+}
+
+/* Поля вводу */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 3vw, 20px);
+    margin-bottom: clamp(12px, 3vw, 20px);
+}
+
+.form-row input,
+.branch-select,
+.city-input {
+    width: 100%;
+    padding: clamp(14px, 3.5vw, 18px) clamp(18px, 4vw, 24px);
+    border: 2px solid #e5e0d8;
+    border-radius: 999px;
+    font-size: clamp(15px, 2.5vw, 17px);
+    background: white;
+    transition: border 0.2s;
+}
+
+.form-row input:focus,
+.branch-select:focus,
+.city-input:focus {
+    border-color: var(--green-main);
+    outline: none;
+}
+
+/* Дропдаун міст */
+.city-dropdown {
+    background: white;
+    border: 2px solid #e5e0d8;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    margin-top: -4px;
+    max-height: 280px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.dropdown-item {
+    padding: clamp(12px, 3vw, 16px) clamp(18px, 4vw, 24px);
+    cursor: pointer;
+    font-size: clamp(15px, 2.5vw, 17px);
+    transition: all 0.2s;
+    border-bottom: 1px solid #f5f2ed;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: #f9f7f2;
+    color: var(--green-main);
+    padding-left: clamp(24px, 4vw, 32px);
+}
+
+/* Селект відділень */
+.branch-select {
+    margin-top: 8px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%233D5F3E' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+/* Спосіб оплати */
+.payment-methods {
+    display: flex;
+    gap: clamp(12px, 3vw, 20px);
+    margin-bottom: clamp(28px, 5vw, 40px);
+}
+
+.payment-btn {
+    flex: 1;
+    padding: clamp(14px, 3.5vw, 18px);
+    border: 2px solid #e5e0d8;
+    border-radius: 999px;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: clamp(15px, 2.5vw, 17px);
+    transition: all 0.25s;
+}
+
+.payment-btn.active {
+    background: var(--green-main);
+    color: white;
+    border-color: var(--green-main);
+}
+
+/* Кнопка оформлення */
+.checkout-submit-btn {
+    width: 100%;
+    padding: clamp(16px, 4vw, 20px);
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: clamp(16px, 3vw, 18px);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: clamp(24px, 5vw, 36px);
+    transition: all 0.2s;
+}
+
+.checkout-submit-btn:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+}
+
+/* Права колонка */
+.checkout-right {
+    background: white;
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 36px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-title {
+    font-size: clamp(20px, 3.5vw, 24px);
+    font-weight: 600;
+    color: var(--green-main);
+    margin-bottom: clamp(20px, 4vw, 28px);
+}
+
+.checkout-items {
+    margin-bottom: clamp(20px, 4vw, 32px);
+}
+
+.checkout-item {
+    position: relative;
+    display: flex;
+    gap: 26px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkout-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.checkout-item-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.checkout-item-remove:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.checkout-item-image img {
+    width: clamp(60px, 8vw, 80px);
+    height: clamp(60px, 8vw, 80px);
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.checkout-item-info h4 {
+    font-size: clamp(15px, 2.5vw, 17px);
+    margin: 0 0 4px 0;
+}
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 600;
+    margin: clamp(24px, 5vw, 36px) 0;
+    padding-top: 16px;
+    border-top: 2px solid #e5e0d8;
+}
+
+/* Адаптив */
+@media (min-width: 1900px) and (max-width: 3500px) {
+
+    .checkout-container {
+        max-width: 1600px;
+        grid-template-columns: 1fr 520px;
+        gap: clamp(80px, 6vw, 140px);
+    }
+
+    .checkout-info-box {
+        font-size: clamp(35px, 1.2vw, 26px);
+        padding: clamp(30px, 3vw, 50px);
+    }
+
+    .checkout-section-title {
+        font-size: clamp(28px, 2.5vw, 34px);
+    }
+
+    .form-row input,
+    .branch-select,
+    .city-input {
+        font-size: clamp(18px, 1.2vw, 22px);
+        padding: clamp(18px, 2vw, 24px);
+    }
+
+    .payment-btn {
+        font-size: clamp(18px, 1.2vw, 22px);
+        padding: clamp(18px, 2vw, 24px);
+    }
+
+    .checkout-submit-btn {
+        font-size: clamp(20px, 1.5vw, 24px);
+        padding: clamp(20px, 2vw, 26px);
+    }
+
+    .checkout-right {
+        padding: clamp(30px, 3vw, 50px);
+    }
+
+    .checkout-item-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .checkout-item-info h4 {
+        font-size: 20px;
+    }
+
+    .checkout-total {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+        gap: clamp(40px, 6vw, 60px);
+    }
+
+    .checkout-right {
+        position: static;
+    }
+
+    .checkout-info-box {
+        font-size: clamp(17px, 1.2vw, 19px);
+    }
+
+    .payment-btn {
+        padding: clamp(8px, 1.5vw, 18px);
+        font-size: clamp(12px, 2.5vw, 17px);
+    }
+}

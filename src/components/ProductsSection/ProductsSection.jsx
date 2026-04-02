@@ -1,11 +1,10 @@
-// src/components/ProductsSection/ProductsSection.jsx
-// майже без змін, тільки додав class для кнопки "Побачити все"
-
 import "./ProductsSection.css"
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard"
 import products from "../../data/products"
 
 function ProductsSection() {
+    const navigate = useNavigate();
     return (
         <section className="products">
             <div className="products__header">
@@ -17,7 +16,13 @@ function ProductsSection() {
                     </p>
                 </div>
 
-                <button className="products__all-btn">
+                <button
+                    className="products__all-btn"
+                    onClick={() => {
+                        navigate("/catalog");
+
+                    }}
+                >
                     Побачити все
                 </button>
             </div>
