@@ -181,7 +181,34 @@ function CheckoutPage() {
                                     type="tel"
                                     placeholder="Телефон (+380 ...)"
                                     value={form.phone}
-                                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                                    maxLength={17}
+                                    onChange={(e) => {
+                                        let value = e.target.value.replace(/\D/g, '');
+
+
+                                        if (value.length === 0) {
+                                            setForm({ ...form, phone: "+380 " });
+                                            return;
+                                        }
+
+
+                                        if (!value.startsWith('380')) {
+                                            value = '380' + value;
+                                        }
+
+
+                                        value = value.slice(0, 12);
+
+
+                                        let formatted = '+380';
+
+                                        if (value.length > 3) formatted += ' ' + value.slice(3, 5);
+                                        if (value.length > 5) formatted += ' ' + value.slice(5, 8);
+                                        if (value.length > 8) formatted += ' ' + value.slice(8, 10);
+                                        if (value.length > 10) formatted += ' ' + value.slice(10, 12);
+
+                                        setForm({ ...form, phone: formatted });
+                                    }}
                                 />
                             </div>
 
