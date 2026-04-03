@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import usePageTitle from "./../hooks/usePageTitle";
 
 import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
@@ -10,6 +11,7 @@ import About from "../components/About/About";
 import Footer from "../components/Footer/Footer";
 
 function Home() {
+    usePageTitle("Головна | Vitaminka");
     const location = useLocation();
 
     useEffect(() => {

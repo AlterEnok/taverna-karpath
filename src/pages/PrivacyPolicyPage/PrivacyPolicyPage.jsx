@@ -1,8 +1,10 @@
 import Header from "../../components/Header/Header";
+import usePageTitle from "../../hooks/usePageTitle";
 import Footer from "../../components/Footer/Footer";
 import "./PrivacyPolicyPage.css";
 
 function PrivacyPolicyPage() {
+    usePageTitle("Політика конфіденційності");
     return (
         <>
             <Header />

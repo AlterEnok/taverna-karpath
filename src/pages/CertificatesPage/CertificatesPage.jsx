@@ -1,4 +1,5 @@
 import Header from "../../components/Header/Header";
+import usePageTitle from "../../hooks/usePageTitle";
 import Footer from "../../components/Footer/Footer";
 import "./CertificatesPage.css";
 
@@ -9,6 +10,7 @@ import cert4 from "../../assets/cert-4.jpg";
 import cert5 from "../../assets/cert-5.jpg";
 
 function CertificatesPage() {
+    usePageTitle("Сертифікати");
     const certificates = [cert1, cert2, cert3, cert4, cert5];
 
     return (

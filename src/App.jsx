@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom"
 import ScrollToTop from "./components/ScrollToTop";
+import Preloader from "./components/Preloader/Preloader";
 
 import Home from "./pages/Home"
 import Catalog from "./pages/Catalog/Catalog"
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <>
+      <Preloader />
       <ScrollToTop />
 
       <div key={location.pathname} className="page-transition">

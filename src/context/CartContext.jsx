@@ -1,11 +1,22 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
 
-    const [cartItems, setCartItems] = useState([])
+    // 🔥 загрузка корзины при старте
+    const [cartItems, setCartItems] = useState(() => {
+        const saved = localStorage.getItem("cart")
+        return saved ? JSON.parse(saved) : []
+    })
+
     const [isCartOpen, setIsCartOpen] = useState(false)
+
+    // 🔥 сохранение при каждом изменении
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems))
+    }, [cartItems])
+
 
     const addToCart = (product) => {
         setCartItems(prev => {
@@ -52,7 +63,7 @@ export const CartProvider = ({ children }) => {
                         ? { ...item, qty: item.qty - 1 }
                         : item
                 )
-                .filter(item => item.qty > 0) // 💥 если 0 → удаляем
+                .filter(item => item.qty > 0)
         )
     }
 

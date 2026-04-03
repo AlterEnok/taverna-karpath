@@ -1,0 +1,158 @@
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1702a;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+
+html.no-scroll {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+html.no-scroll body {
+    overflow: hidden !important;
+    padding-right: var(--scrollbar-width, 0px) !important;
+}
+
+.preloader--fade {
+    opacity: 0;
+}
+
+/* Капсула */
+.preloader__capsule {
+    width: clamp(260px, 38vw, 380px);
+    height: clamp(110px, 16vw, 160px);
+    position: relative;
+    border-radius: 9999px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    animation: capsulePop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.capsule-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 52%;
+    height: 100%;
+    background: #ffffff;
+    border-right: 6px solid #f8e9d7;
+}
+
+.capsule-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48%;
+    height: 100%;
+    background: #7a9f6e;
+}
+
+.capsule-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 700;
+    color: #2c3e2f;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Анімація появи */
+@keyframes capsulePop {
+    0% {
+        transform: scale(0.3) translateY(40px);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.08) translateY(-8px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================= */
+/* АДАПТИВ */
+/* ============================================= */
+
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .preloader__capsule {
+        width: clamp(320px, 28vw, 460px);
+        height: clamp(130px, 11vw, 190px);
+    }
+
+    .capsule-text {
+        font-size: clamp(32px, 2.8vw, 52px);
+        letter-spacing: 6px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .preloader__capsule {
+        width: clamp(240px, 45vw, 340px);
+        height: clamp(100px, 18vw, 140px);
+    }
+
+    .capsule-text {
+        font-size: clamp(24px, 5vw, 36px);
+        letter-spacing: 4px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .preloader__capsule {
+        width: clamp(220px, 70vw, 300px);
+        height: clamp(92px, 22vw, 120px);
+    }
+
+    .capsule-text {
+        font-size: clamp(22px, 6.5vw, 32px);
+        letter-spacing: 2px;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .preloader__capsule {
+        width: clamp(200px, 80vw, 260px);
+        height: clamp(85px, 24vw, 110px);
+    }
+
+    .capsule-text {
+        font-size: clamp(20px, 7vw, 28px);
+    }
+}
+
+
+@media (max-width: 350px) {
+    .preloader__capsule {
+        width: clamp(180px, 85vw, 220px);
+        height: clamp(78px, 26vw, 95px);
+    }
+
+    .capsule-text {
+        font-size: clamp(18px, 7.5vw, 24px);
+        letter-spacing: 1px;
+    }
+}

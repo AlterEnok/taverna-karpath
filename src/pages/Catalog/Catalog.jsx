@@ -1,4 +1,6 @@
 import { useState, useRef } from "react"
+import usePageTitle from "../../hooks/usePageTitle";
+
 import "./Catalog.css"
 import products from "../../data/products"
 import Header from "../../components/Header/Header"
@@ -7,12 +9,14 @@ import ProductCard from "../../components/ProductCard/ProductCard"
 import { FiChevronRight } from "react-icons/fi"
 
 function Catalog() {
+    usePageTitle("Каталог | Vitaminka");
+
     const [showAll, setShowAll] = useState(false)
     const [activeCategory, setActiveCategory] = useState("Усі")
     const [currentPage, setCurrentPage] = useState(1)
     const [animateKey, setAnimateKey] = useState(0)
 
-    const gridRef = useRef(null) // ✅ главный фикс
+    const gridRef = useRef(null)
 
     const categories = [
         "Усі",

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
-import { FiShoppingCart, FiSearch } from "react-icons/fi";
+import { FiShoppingCart, FiSearch, FiX } from "react-icons/fi";
 
 import logo from "../../assets/logo.png";
 import { useCart } from "../../context/useCart";
@@ -13,10 +13,12 @@ function Header() {
 
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [searchOpen, setSearchOpen] = useState(false);
 
+    const [setSearchOpen] = useState(false); // ПК
+    const [mobileSearchOpen, setMobileSearchOpen] = useState(false); // 📱
 
     const [searchQuery, setSearchQuery] = useState("");
+
     const filteredProducts = searchQuery.trim() === ""
         ? []
         : products
@@ -30,65 +32,16 @@ function Header() {
     const { cartItems, setIsCartOpen } = useCart();
     const cartCount = cartItems.reduce((total, item) => total + item.qty, 0);
 
-
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
     useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : "auto";
-    }, [menuOpen]);
-
-
-
-
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (searchRef.current && !searchRef.current.contains(e.target)) {
-                setSearchOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        document.addEventListener("touchstart", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-            document.removeEventListener("touchstart", handleClickOutside);
-        };
-    }, []);
-
-
-    useEffect(() => {
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        const handleTouchStart = (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        };
-
-        const handleTouchEnd = (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > 50) {
-                setSearchOpen(false);
-            }
-        };
-
-        document.addEventListener("touchstart", handleTouchStart);
-        document.addEventListener("touchend", handleTouchEnd);
-
-        return () => {
-            document.removeEventListener("touchstart", handleTouchStart);
-            document.removeEventListener("touchend", handleTouchEnd);
-        };
-    }, []);
-
+        document.body.style.overflow =
+            menuOpen || mobileSearchOpen ? "hidden" : "auto";
+    }, [menuOpen, mobileSearchOpen]);
 
     const handleScrollTo = (id) => {
         if (location.pathname === "/") {
@@ -103,113 +56,133 @@ function Header() {
         setMenuOpen(false);
     };
 
-
     const handleSelectProduct = (id) => {
         navigate(`/product/${id}`);
         setSearchQuery("");
-
         setSearchOpen(false);
+        setMobileSearchOpen(false);
     };
 
     return (
-        <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
-            <div className={`header__wrapper ${searchOpen ? "search-active" : ""}`}>
+        <>
+            <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
+                <div className="header__wrapper">
 
+                    <div
+                        className="header__logo"
+                        onClick={() => navigate("/")}
+                        style={{ cursor: "pointer" }}
+                    >
+                        <img src={logo} alt="" className="header__logo-img" />
+                    </div>
 
-                <div
-                    className="header__logo"
-                    onClick={() => navigate("/")}
-                    style={{ cursor: "pointer" }}
-                >
-                    <img src={logo} alt="" className="header__logo-img" />
-                </div>
+                    <nav className="header__nav">
+                        <button onClick={() => handleScrollTo("about")} className="header__nav-btn">
+                            Про мене
+                        </button>
 
+                        <button onClick={() => handleScrollTo("contact")} className="header__nav-btn">
+                            Контакти
+                        </button>
 
-                <nav className="header__nav">
-                    <button onClick={() => handleScrollTo("about")} className="header__nav-btn">
-                        Про мене
-                    </button>
+                        <button
+                            className="header__nav-btn header__nav-btn--catalog"
+                            onClick={() => navigate("/catalog")}
+                        >
+                            Каталог
+                        </button>
+                    </nav>
 
-                    <button onClick={() => handleScrollTo("contact")} className="header__nav-btn">
-                        Контакти
-                    </button>
+                    {/* ПК поиск */}
+                    <div className="header__search desktop-search" ref={searchRef}>
+                        <input
+                            type="text"
+                            placeholder="Пошук"
+                            className="header__search-input"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+
+                        <FiSearch className="header__search-icon" />
+
+                        {filteredProducts.length > 0 && (
+                            <div className="search-dropdown">
+                                {filteredProducts.map(item => (
+                                    <div
+                                        key={item.id}
+                                        className="search-item"
+                                        onClick={() => handleSelectProduct(item.id)}
+                                    >
+                                        {item.title}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* 📱 кнопка поиска */}
+                    <FiSearch
+                        className="mobile-search-icon"
+                        onClick={() => setMobileSearchOpen(true)}
+                    />
+
+                    <div className="header__actions">
+                        <button
+                            className="header__icon-btn header__cart-btn"
+                            onClick={() => setIsCartOpen(true)}
+                        >
+                            <FiShoppingCart />
+                            {cartCount > 0 && (
+                                <span className="cart-badge">{cartCount}</span>
+                            )}
+                        </button>
+                    </div>
 
                     <button
-                        className="header__nav-btn header__nav-btn--catalog"
-                        onClick={() => navigate("/catalog")}
+                        className={`burger ${menuOpen ? "burger--active" : ""}`}
+                        onClick={() => setMenuOpen(!menuOpen)}
                     >
-                        Каталог
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
-                </nav>
 
+                    <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
+                        <a onClick={() => { navigate("/catalog"); setMenuOpen(false); }}>
+                            Каталог
+                        </a>
+                        <a onClick={() => handleScrollTo("about")}>Про мене</a>
+                        <a onClick={() => handleScrollTo("contact")}>Контакти</a>
+                    </div>
+                </div>
+            </header>
 
-                <div className="header__search" ref={searchRef}>
-
+            {/* 📱 МОДАЛКА ПОИСКА */}
+            <div className={`search-modal ${mobileSearchOpen ? "active" : ""}`}>
+                <div className="search-modal__header">
                     <input
                         type="text"
-                        placeholder="Пошук"
-                        className={`header__search-input ${searchOpen ? "active" : ""}`}
+                        placeholder="Пошук..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        autoFocus={searchOpen}
+                        autoFocus
                     />
 
-                    <FiSearch
-                        className="header__search-icon"
-                        onClick={() => setSearchOpen(prev => !prev)}
-                    />
+                    <FiX onClick={() => setMobileSearchOpen(false)} />
+                </div>
 
-                    {filteredProducts.length > 0 && (
-                        <div className="search-dropdown">
-                            {filteredProducts.map(item => (
-                                <div
-                                    key={item.id}
-                                    className="search-item"
-                                    onClick={() => handleSelectProduct(item.id)}
-                                >
-                                    {item.title}
-                                </div>
-                            ))}
+                <div className="search-modal__results">
+                    {filteredProducts.map(item => (
+                        <div
+                            key={item.id}
+                            onClick={() => handleSelectProduct(item.id)}
+                        >
+                            {item.title}
                         </div>
-                    )}
-
+                    ))}
                 </div>
-
-
-                <div className="header__actions">
-                    <button
-                        className="header__icon-btn header__cart-btn"
-                        onClick={() => setIsCartOpen(true)}
-                    >
-                        <FiShoppingCart />
-                        {cartCount > 0 && (
-                            <span className="cart-badge">{cartCount}</span>
-                        )}
-                    </button>
-                </div>
-
-
-                <button
-                    className={`burger ${menuOpen ? "burger--active" : ""}`}
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                {/* MOBILE MENU */}
-                <div className={`mobile-menu ${menuOpen ? "mobile-menu--open" : ""}`}>
-                    <a onClick={() => { navigate("/catalog"); setMenuOpen(false); }}>
-                        Каталог
-                    </a>
-
-                    <a onClick={() => handleScrollTo("about")}>Про мене</a>
-                    <a onClick={() => handleScrollTo("contact")}>Контакти</a>
-                </div>
-
             </div>
-        </header>
+        </>
     );
 }
 

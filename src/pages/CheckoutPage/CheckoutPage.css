@@ -89,16 +89,17 @@
     padding-left: clamp(24px, 4vw, 32px);
 }
 
-/* Селект відділень */
+
 .branch-select {
     margin-top: 8px;
     appearance: none;
+    font-size: max(16px, clamp(15px, 2.5vw, 17px));
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%233D5F3E' stroke-width='2' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 20px center;
 }
 
-/* Спосіб оплати */
+
 .payment-methods {
     display: flex;
     gap: clamp(12px, 3vw, 20px);
@@ -110,7 +111,7 @@
     padding: clamp(14px, 3.5vw, 18px);
     border: 2px solid #e5e0d8;
     border-radius: 999px;
-    background: white;
+    background: var(--white);
     cursor: pointer;
     font-weight: 500;
     font-size: clamp(15px, 2.5vw, 17px);
@@ -119,7 +120,7 @@
 
 .payment-btn.active {
     background: var(--green-main);
-    color: white;
+    color: var(--white);
     border-color: var(--green-main);
 }
 
@@ -128,7 +129,7 @@
     width: 100%;
     padding: clamp(16px, 4vw, 20px);
     background: var(--orange);
-    color: white;
+    color: var(--white);
     border: none;
     border-radius: 999px;
     font-size: clamp(16px, 3vw, 18px);
@@ -145,7 +146,7 @@
 
 /* Права колонка */
 .checkout-right {
-    background: white;
+    background: var(--white);
     border-radius: 24px;
     padding: clamp(24px, 4vw, 36px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);

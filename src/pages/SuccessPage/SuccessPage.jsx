@@ -1,9 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import usePageTitle from "../../hooks/usePageTitle";
+
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./SuccessPage.css";
 
 function SuccessPage() {
+    usePageTitle("Замовлення успішно оформлено | Vitaminka");
+
     const { state } = useLocation();
     const navigate = useNavigate();
 

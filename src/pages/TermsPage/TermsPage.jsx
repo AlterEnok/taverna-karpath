@@ -1,8 +1,10 @@
 import Header from "../../components/Header/Header";
+import usePageTitle from "../../hooks/usePageTitle";
 import Footer from "../../components/Footer/Footer";
 import "./TermsPage.css";
 
 function TermsPage() {
+    usePageTitle("Публічний договір оферти");
     return (
         <>
             <Header />

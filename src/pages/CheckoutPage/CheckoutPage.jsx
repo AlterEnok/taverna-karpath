@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import usePageTitle from "../../hooks/usePageTitle";
+
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
 import { FiTrash2 } from "react-icons/fi";
@@ -8,6 +10,8 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 function CheckoutPage() {
+    usePageTitle("Оформлення замовлення | Vitaminka");
+
     const navigate = useNavigate();
     const { cartItems, clearCart, removeFromCart } = useCart();
 
@@ -139,7 +143,7 @@ function CheckoutPage() {
             <section className="checkout">
                 <div className="checkout-container">
 
-                    {/* Ліва колонка */}
+
                     <div className="checkout-left">
                         <div className="checkout-info-box">
                             <p>
@@ -264,7 +268,7 @@ function CheckoutPage() {
                         </div>
                     </div>
 
-                    {/* Права колонка — товари */}
+
                     <div className="checkout-right">
                         <h3 className="summary-title">Ваше замовлення</h3>
 

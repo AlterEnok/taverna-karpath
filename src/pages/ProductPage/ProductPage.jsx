@@ -4,6 +4,8 @@ import "./ProductPage.css";
 import { useCart } from "../../context/useCart";
 import products from "../../data/products";
 
+import usePageTitle from "../../hooks/usePageTitle";   // ←←←←←←←←←←←←←←←←←←←
+
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
@@ -15,6 +17,14 @@ function ProductPage() {
     const [activeTab, setActiveTab] = useState("desc");
 
     const { addToCart, setIsCartOpen } = useCart();
+
+    // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+    usePageTitle(
+        product
+            ? `${product.title} | Vitaminka`
+            : "Товар | Vitaminka"
+    );
+    // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
 
     if (!product) return <h2>Товар не знайдено</h2>;
 
@@ -37,7 +47,6 @@ function ProductPage() {
                 <div className="product__container">
                     <div className="product__main">
 
-                        {/* ❌ убрали клик */}
                         <div className="product__image">
                             <img
                                 src={product.image}

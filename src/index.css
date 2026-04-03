@@ -8,9 +8,30 @@
   --font-main: "Ubuntu Sans Mono", monospace;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: var(--font-main);
   background: var(--bg-main);
+}
+
+::selection {
+  background-color: #E09F61;
+  color: var(--white);
+}
+
+
+::-moz-selection {
+  background-color: #E09F61;
+  color: var(--white);
+}
+
+input,
+select,
+textarea {
+  font-size: 16px !important;
 }
 
 button,

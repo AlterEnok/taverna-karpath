@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import usePageTitle from "../../hooks/usePageTitle"
+
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./FailurePage.css";
 
 function FailurePage() {
+    usePageTitle("Помилка оформлення замовлення");
+
     const navigate = useNavigate();
 
     return (
