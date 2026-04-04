@@ -8,27 +8,35 @@
   --font-main: "Ubuntu Sans Mono", monospace;
 }
 
+/* Головне блокування горизонтального скролу */
+html,
+body {
+  overflow-x: unset;
+  /* блокуємо горизонтальний скрол */
+  width: 100% !important;
+  max-width: 100% !important;
+}
 
-
-
-
+/* Додатковий захист від вилазів */
 body {
   font-family: var(--font-main);
   background: var(--bg-main);
-  overflow-x: hidden;
+  position: relative;
 }
 
+
+/* Виділення тексту */
 ::selection {
   background-color: #E09F61;
   color: var(--white);
 }
-
 
 ::-moz-selection {
   background-color: #E09F61;
   color: var(--white);
 }
 
+/* Форми */
 input,
 select,
 textarea {
@@ -47,6 +55,7 @@ a {
   color: inherit;
 }
 
+/* Анімація сторінок */
 .page-transition {
   animation: pageFade 0.35s ease;
 }
