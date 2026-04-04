@@ -1,3 +1,7 @@
+body {
+    overflow-x: clip;
+}
+
 .header {
     position: sticky;
     top: 0;
@@ -8,23 +12,24 @@
     padding-top: 20px;
 
     z-index: 1000;
+
+    width: 100%;
+    overflow: visible;
 }
 
 
 
 .header__wrapper {
-
     display: flex;
     align-items: center;
     gap: 20px;
-
     padding: 10px 18px;
-
     background: transparent;
-
     border-radius: 50px;
-
     transition: all 0.35s ease;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    box-sizing: border-box;
 }
 
 
@@ -335,43 +340,35 @@
 
 
 .mobile-menu {
-
     position: absolute;
 
     top: calc(100% + 10px);
-    left: 0;
-    right: 0;
-    margin: 0 auto;
 
-    transform: translateY(-20px) scaleY(0.8);
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px) scaleY(0.8);
+    width: calc(100% - 32px);
+    max-width: 340px;
 
     transform-origin: top;
 
     display: flex;
     flex-direction: column;
     gap: 10px;
-
     padding: 16px;
-
-    width: min(92vw, 340px);
-
     background: rgba(255, 255, 255, 0.95);
-
     backdrop-filter: blur(12px);
-
     border-radius: 20px;
-
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.15),
         inset 0 0 0 1px rgba(255, 255, 255, 0.4);
 
     opacity: 0;
     pointer-events: none;
-
     transition:
         transform .45s cubic-bezier(.4, 0, .2, 1),
         opacity .35s ease;
 
+    box-sizing: border-box;
 }
 
 .mobile-menu a {
@@ -428,7 +425,7 @@
 
     opacity: 1;
 
-    transform: translateY(0) scaleY(1);
+    transform: translateX(-50%) translateY(0) scaleY(1);
 
     pointer-events: auto;
 
@@ -533,7 +530,13 @@
 
 @media (max-width: 768px) {
 
+    body {
+        overflow-x: hidden;
+    }
+
     .header__wrapper {
+        max-width: 100%;
+        overflow: visible;
         gap: clamp(18px, 6vw, 32px);
         padding: clamp(10px, 3vw, 14px) clamp(16px, 5vw, 25px);
         transition: all 0.3s ease;
@@ -584,12 +587,19 @@
         transition: transform 0.35s ease;
     }
 
+    .header__wrapper.search-active .header__actions {
+        transform: translateX(40px);
+    }
 
+    .header__wrapper.search-active .burger {
+        transform: translateX(60px);
+    }
 
 
     .search-dropdown {
-        width: 200px;
-        left: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(200px, 90vw);
     }
 
     .burger {

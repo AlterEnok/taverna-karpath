@@ -14,23 +14,22 @@ function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const [setSearchOpen] = useState(false); // ПК
-    const [mobileSearchOpen, setMobileSearchOpen] = useState(false); // 📱
-
+    const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
-
-    const filteredProducts = searchQuery.trim() === ""
-        ? []
-        : products
-            .filter(p =>
-                p.title.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            .slice(0, 5);
 
     const searchRef = useRef(null);
 
     const { cartItems, setIsCartOpen } = useCart();
     const cartCount = cartItems.reduce((total, item) => total + item.qty, 0);
+
+    const filteredProducts =
+        searchQuery.trim() === ""
+            ? []
+            : products
+                .filter((p) =>
+                    p.title.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+                .slice(0, 5);
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -39,32 +38,25 @@ function Header() {
     }, []);
 
     useEffect(() => {
-        if (menuOpen || mobileSearchOpen) {
-            document.documentElement.classList.add("no-scroll");
-            document.body.classList.add("no-scroll");
-        } else {
-            document.documentElement.classList.remove("no-scroll");
-            document.body.classList.remove("no-scroll");
-        }
+        document.body.style.overflowY =
+            menuOpen || mobileSearchOpen ? "hidden" : "auto";
     }, [menuOpen, mobileSearchOpen]);
 
     const handleScrollTo = (id) => {
         if (location.pathname === "/") {
             document.getElementById(id)?.scrollIntoView({
                 behavior: "smooth",
-                block: "start"
+                block: "start",
             });
         } else {
             navigate("/", { state: { scrollTo: id } });
         }
-
         setMenuOpen(false);
     };
 
     const handleSelectProduct = (id) => {
         navigate(`/product/${id}`);
         setSearchQuery("");
-        setSearchOpen(false);
         setMobileSearchOpen(false);
     };
 
@@ -72,11 +64,9 @@ function Header() {
         <>
             <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
                 <div className="header__wrapper">
-
                     <div
                         className="header__logo"
                         onClick={() => navigate("/")}
-                        style={{ cursor: "pointer" }}
                     >
                         <img src={logo} alt="" className="header__logo-img" />
                     </div>
@@ -98,7 +88,6 @@ function Header() {
                         </button>
                     </nav>
 
-                    {/* ПК поиск */}
                     <div className="header__search desktop-search" ref={searchRef}>
                         <input
                             type="text"
@@ -112,11 +101,13 @@ function Header() {
 
                         {filteredProducts.length > 0 && (
                             <div className="search-dropdown">
-                                {filteredProducts.map(item => (
+                                {filteredProducts.map((item) => (
                                     <div
                                         key={item.id}
                                         className="search-item"
-                                        onClick={() => handleSelectProduct(item.id)}
+                                        onClick={() =>
+                                            handleSelectProduct(item.id)
+                                        }
                                     >
                                         {item.title}
                                     </div>
@@ -125,7 +116,6 @@ function Header() {
                         )}
                     </div>
 
-                    {/* 📱 кнопка поиска */}
                     <FiSearch
                         className="mobile-search-icon"
                         onClick={() => setMobileSearchOpen(true)}
@@ -138,7 +128,9 @@ function Header() {
                         >
                             <FiShoppingCart />
                             {cartCount > 0 && (
-                                <span className="cart-badge">{cartCount}</span>
+                                <span className="cart-badge">
+                                    {cartCount}
+                                </span>
                             )}
                         </button>
                     </div>
@@ -162,7 +154,6 @@ function Header() {
                 </div>
             </header>
 
-            {/* 📱 МОДАЛКА ПОИСКА */}
             <div className={`search-modal ${mobileSearchOpen ? "active" : ""}`}>
                 <div className="search-modal__header">
                     <input
@@ -177,7 +168,7 @@ function Header() {
                 </div>
 
                 <div className="search-modal__results">
-                    {filteredProducts.map(item => (
+                    {filteredProducts.map((item) => (
                         <div
                             key={item.id}
                             onClick={() => handleSelectProduct(item.id)}
