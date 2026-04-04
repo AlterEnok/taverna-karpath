@@ -3,6 +3,8 @@
     color: var(--white);
     padding: clamp(140px, 12vw, 200px) 20px 70px;
     position: relative;
+
+
 }
 
 .footer-container {
@@ -15,8 +17,10 @@
 .footer-logo-wrapper {
     position: absolute;
     top: -230px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
     z-index: 5;
 }
 

@@ -10,7 +10,7 @@
     transition: opacity 0.8s ease;
 }
 
-
+/* 
 html.no-scroll {
     overflow: hidden !important;
     position: fixed !important;
@@ -21,7 +21,7 @@ html.no-scroll {
 html.no-scroll body {
     overflow: hidden !important;
     padding-right: var(--scrollbar-width, 0px) !important;
-}
+} */
 
 .preloader--fade {
     opacity: 0;
