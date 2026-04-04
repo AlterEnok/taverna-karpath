@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import usePageTitle from "./../hooks/usePageTitle";
 
-// import Header from "../components/Header/Header";
+import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Categories from "../components/Categories/Categories";
 import ProductsSection from "../components/ProductsSection/ProductsSection";
@@ -29,7 +29,7 @@ function Home() {
 
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <Hero />
             <Categories />
             <ProductsSection />

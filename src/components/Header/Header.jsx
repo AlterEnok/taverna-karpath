@@ -39,8 +39,13 @@ function Header() {
     }, []);
 
     useEffect(() => {
-        document.body.style.overflow =
-            menuOpen || mobileSearchOpen ? "hidden" : "auto";
+        if (menuOpen || mobileSearchOpen) {
+            document.documentElement.classList.add("no-scroll");
+            document.body.classList.add("no-scroll");
+        } else {
+            document.documentElement.classList.remove("no-scroll");
+            document.body.classList.remove("no-scroll");
+        }
     }, [menuOpen, mobileSearchOpen]);
 
     const handleScrollTo = (id) => {

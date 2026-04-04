@@ -339,9 +339,11 @@
     position: absolute;
 
     top: calc(100% + 10px);
-    left: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 
-    transform: translateX(-50%) translateY(-20px) scaleY(0.8);
+    transform: translateY(-20px) scaleY(0.8);
 
     transform-origin: top;
 
@@ -426,7 +428,7 @@
 
     opacity: 1;
 
-    transform: translateX(-50%) translateY(0) scaleY(1);
+    transform: translateY(0) scaleY(1);
 
     pointer-events: auto;
 
@@ -582,13 +584,7 @@
         transition: transform 0.35s ease;
     }
 
-    .header__wrapper.search-active .header__actions {
-        transform: translateX(40px);
-    }
 
-    .header__wrapper.search-active .burger {
-        transform: translateX(60px);
-    }
 
 
     .search-dropdown {
