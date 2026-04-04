@@ -93,10 +93,24 @@
 .branch-select {
     margin-top: 8px;
     appearance: none;
+
+    width: 100%;
+    max-width: 100%;
+
     font-size: max(16px, clamp(15px, 2.5vw, 17px));
+
+
+    padding-right: 48px;
+
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%233D5F3E' stroke-width='2' fill='none'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 20px center;
+    background-position: right 16px center;
+    background-size: 12px;
+
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -282,6 +296,14 @@
 @media (max-width: 767px) {
     .checkout-container {
         gap: clamp(40px, 8vw, 60px);
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .checkout-left,
+    .checkout-right {
+        min-width: 0;
+        width: 100%;
     }
 
     .form-row {
@@ -294,6 +316,24 @@
 
     .checkout-submit-btn {
         margin-top: 32px;
+    }
+
+
+    .branch-select {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 52px;
+    }
+
+
+    .city-dropdown {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .checkout {
+        overflow-x: hidden;
     }
 }
 
@@ -312,6 +352,13 @@
     .city-input {
         font-size: clamp(14px, 4vw, 16px);
         padding: clamp(12px, 4vw, 16px);
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    .checkout-container {
+        padding: 0;
     }
 }
 

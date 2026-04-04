@@ -8,13 +8,17 @@
   --font-main: "Ubuntu Sans Mono", monospace;
 }
 
+
+
 html {
   -webkit-text-size-adjust: 100%;
+
 }
 
 body {
   font-family: var(--font-main);
   background: var(--bg-main);
+  overflow-x: hidden;
 }
 
 ::selection {
