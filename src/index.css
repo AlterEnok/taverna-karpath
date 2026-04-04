@@ -19,6 +19,7 @@
 
 /* Додатковий захист від вилазів */
 body {
+  overflow: hidden;
   font-family: var(--font-main);
   background: var(--bg-main);
   position: relative;
