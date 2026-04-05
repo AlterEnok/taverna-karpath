@@ -236,7 +236,8 @@
     }
 
     .footer-copyright-wrapper {
-        max-width: 90%
+        padding: 8px 20px;
+
     }
 
     .footer-copyright {
