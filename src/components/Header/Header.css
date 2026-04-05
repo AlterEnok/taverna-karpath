@@ -2,7 +2,7 @@ body {
     overflow-x: clip !important;
 }
 
-/* ====================== HEADER ====================== */
+
 .header {
     position: fixed;
     top: 0;
@@ -10,7 +10,7 @@ body {
     right: 0;
     display: flex;
     justify-content: center;
-
+    padding-top: 20px;
     z-index: 1000;
     width: 100%;
     overflow: visible;
@@ -233,7 +233,7 @@ body {
     background: #dcd9d5;
 }
 
-/* burger */
+
 .burger {
     display: none;
     width: 40px;

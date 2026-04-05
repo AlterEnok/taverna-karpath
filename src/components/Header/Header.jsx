@@ -12,13 +12,13 @@ function Header() {
     const location = useLocation();
 
     const [scrolled, setScrolled] = useState(false);
-    const [hidden, setHidden] = useState(false);        // ← новое
+    const [hidden, setHidden] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
     const searchRef = useRef(null);
-    const lastScrollY = useRef(0);                       // ← новое
+    const lastScrollY = useRef(0);
 
     const { cartItems, setIsCartOpen } = useCart();
     const cartCount = cartItems.reduce((total, item) => total + item.qty, 0);
@@ -32,7 +32,7 @@ function Header() {
                 )
                 .slice(0, 5);
 
-    // Скролл для изменения фона
+
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
@@ -41,7 +41,7 @@ function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Новый эффект: скрывать при скролле вниз, показывать при скролле вверх
+
     useEffect(() => {
         const handleHideHeader = () => {
             const currentScrollY = window.scrollY;

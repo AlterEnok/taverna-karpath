@@ -9,9 +9,7 @@
     margin: 0 auto;
 }
 
-/* .contact-header {
-    margin-bottom: clamp(40px, 6vw, 80px);
-} */
+
 
 .contact-header {
     background: var(--hero-text);

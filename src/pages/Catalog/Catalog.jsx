@@ -51,7 +51,7 @@ function Catalog() {
     const scrollToGrid = () => {
         if (!gridRef.current) return
 
-        const yOffset = -100 // 🔥 подстрой под свой хедер
+        const yOffset = -100
         const y =
             gridRef.current.getBoundingClientRect().top +
             window.pageYOffset +
@@ -68,7 +68,7 @@ function Catalog() {
         setCurrentPage(1)
         setAnimateKey(prev => prev + 1)
 
-        setTimeout(scrollToGrid, 50) // ✅ сразу к товарам
+        setTimeout(scrollToGrid, 50)
     }
 
     const changePage = (page) => {
@@ -77,7 +77,7 @@ function Catalog() {
         setCurrentPage(page)
         setAnimateKey(prev => prev + 1)
 
-        setTimeout(scrollToGrid, 50) // ✅ идеальный скролл
+        setTimeout(scrollToGrid, 50)
     }
 
     return (
@@ -104,7 +104,7 @@ function Catalog() {
 
                     <div className="catalog__content">
 
-                        {/* ✅ ВАЖНО: ref тут */}
+
                         <div
                             ref={gridRef}
                             key={animateKey}
@@ -147,7 +147,7 @@ function Catalog() {
 
                     </div>
 
-                    {/* PAGINATION */}
+
                     <div className="catalog__pagination">
 
                         <button onClick={() => changePage(Math.max(currentPage - 1, 1))}>

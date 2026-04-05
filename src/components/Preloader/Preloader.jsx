@@ -6,15 +6,15 @@ function Preloader() {
     const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
-        // === БЛОКУЄМО СКРОЛ ===
+
         document.documentElement.classList.add("no-scroll");
 
-        // Запускаємо fade-out
+
         const fadeTimer = setTimeout(() => {
             setFadeOut(true);
         }, 2800);
 
-        // Повністю прибираємо прелоадер
+
         const removeTimer = setTimeout(() => {
             setVisible(false);
             document.documentElement.classList.remove("no-scroll");

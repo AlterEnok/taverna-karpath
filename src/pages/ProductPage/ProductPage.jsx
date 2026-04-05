@@ -4,7 +4,7 @@ import "./ProductPage.css";
 import { useCart } from "../../context/useCart";
 import products from "../../data/products";
 
-import usePageTitle from "../../hooks/usePageTitle";   // ←←←←←←←←←←←←←←←←←←←
+import usePageTitle from "../../hooks/usePageTitle";
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -18,13 +18,13 @@ function ProductPage() {
 
     const { addToCart, setIsCartOpen } = useCart();
 
-    // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+
     usePageTitle(
         product
             ? `${product.title} | Vitaminka`
             : "Товар | Vitaminka"
     );
-    // ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
+
 
     if (!product) return <h2>Товар не знайдено</h2>;
 

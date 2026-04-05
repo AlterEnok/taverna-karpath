@@ -9,7 +9,7 @@
     margin: 0 auto;
 }
 
-/* ❌ иконка */
+
 .failure-icon {
     width: clamp(80px, 8vw, 100px);
     height: clamp(80px, 8vw, 100px);
@@ -41,7 +41,7 @@
     margin-bottom: clamp(24px, 4vw, 30px);
 }
 
-/* BOX */
+
 .failure-box {
     background: white;
     border-radius: 20px;
@@ -58,7 +58,7 @@
     font-size: clamp(14px, 2vw, 16px);
 }
 
-/* кнопки */
+
 .failure-actions {
     margin-top: clamp(24px, 4vw, 32px);
 
@@ -81,7 +81,7 @@
     transition: 0.25s;
 }
 
-/* retry */
+
 .failure-btn.retry {
     background: var(--green-main);
     color: white;
@@ -92,7 +92,7 @@
     background: #2e4a2f;
 }
 
-/* secondary */
+
 .failure-btn.secondary {
     background: transparent;
     border: 2px solid #ddd;

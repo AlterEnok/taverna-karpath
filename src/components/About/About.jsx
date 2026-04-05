@@ -40,7 +40,7 @@ function About() {
                     </p>
                 </div>
 
-                {/* Права частина — овал */}
+
                 <div className="about-sidebar">
                     <div className="about-oval">
                         <p className="about-oval-text">

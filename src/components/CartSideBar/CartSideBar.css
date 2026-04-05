@@ -11,7 +11,7 @@
     z-index: 2000;
 }
 
-/* DRAWER */
+
 .cart-drawer {
     width: clamp(300px, 90vw, 380px);
     height: 100%;
@@ -38,7 +38,7 @@
     }
 }
 
-/* HEADER */
+
 .cart-header {
     display: flex;
     justify-content: space-between;
@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 
-/* ITEMS */
+
 .cart-items {
     flex: 1;
     overflow-y: auto;
@@ -68,7 +68,7 @@
     gap: 12px;
 }
 
-/* ITEM */
+
 .cart-item {
     display: flex;
     align-items: center;
@@ -80,7 +80,7 @@
     border-radius: 14px;
 }
 
-/* IMAGE */
+
 .cart-item-img {
     width: 60px;
     height: 60px;
@@ -89,7 +89,7 @@
     border-radius: 10px;
 }
 
-/* INFO */
+
 .cart-item-info {
     flex: 1;
 }
@@ -126,24 +126,24 @@
     transition: all 0.25s ease;
 }
 
-/* иконка */
+
 .cart-remove svg {
     font-size: 18px;
     transition: 0.25s;
 }
 
-/* hover */
+
 .cart-remove:hover {
     background: rgba(255, 0, 0, 0.08);
     color: #e53935;
 }
 
-/* чуть "живости" */
+
 .cart-remove:hover svg {
     transform: scale(1.1);
 }
 
-/* FOOTER */
+
 .cart-footer {
     margin-top: 20px;
 
@@ -152,14 +152,14 @@
     gap: 12px;
 }
 
-/* TOTAL */
+
 .cart-total {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
 }
 
-/* BUTTON */
+
 .cart-checkout {
     border: none;
 
@@ -183,7 +183,7 @@
     background: #2e4a2f;
 }
 
-/* EMPTY */
+
 .cart-empty {
     text-align: center;
     opacity: 0.6;
@@ -200,7 +200,7 @@
     gap: 6px;
 }
 
-/* QTY */
+
 .cart-qty {
     display: flex;
     align-items: center;
@@ -273,7 +273,7 @@
 
 
 /* ========================= */
-/* 🔥 до 1024px (планшеты) */
+/*  до 1024px (планшеты) */
 /* ========================= */
 
 @media (max-width: 1024px) {
@@ -297,7 +297,7 @@
 
 
 /* ========================= */
-/* 🔥 до 768px (мобилки) */
+/*  до 768px (мобилки) */
 /* ========================= */
 
 @media (max-width: 768px) {
@@ -330,7 +330,7 @@
 
 
 /* ========================= */
-/* 🔥 до 430px (малые мобилки) */
+/*  до 430px (малые мобилки) */
 /* ========================= */
 
 @media (max-width: 430px) {
@@ -364,7 +364,7 @@
 
 
 /* ========================= */
-/* 🔥 до 360px (очень маленькие) */
+/*  до 360px (очень маленькие) */
 /* ========================= */
 
 @media (max-width: 360px) {

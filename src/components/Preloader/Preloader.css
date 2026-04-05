@@ -25,7 +25,7 @@ html.no-scroll body {
     opacity: 0;
 }
 
-/* Капсула */
+
 .preloader__capsule {
     width: clamp(260px, 38vw, 380px);
     height: clamp(110px, 16vw, 160px);
@@ -70,7 +70,7 @@ html.no-scroll body {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Анімація появи */
+
 @keyframes capsulePop {
     0% {
         transform: scale(0.3) translateY(40px);
