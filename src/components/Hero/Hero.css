@@ -2,7 +2,7 @@
 
     position: relative;
 
-    padding-top: clamp(80px, 10vw, 99px);
+    padding-top: clamp(180px, 10vw, 99px);
     padding-bottom: clamp(60px, 10vw, 120px);
 
 

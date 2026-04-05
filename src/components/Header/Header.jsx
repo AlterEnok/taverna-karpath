@@ -12,12 +12,13 @@ function Header() {
     const location = useLocation();
 
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);        // ← новое
     const [menuOpen, setMenuOpen] = useState(false);
-
     const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
     const searchRef = useRef(null);
+    const lastScrollY = useRef(0);                       // ← новое
 
     const { cartItems, setIsCartOpen } = useCart();
     const cartCount = cartItems.reduce((total, item) => total + item.qty, 0);
@@ -31,10 +32,31 @@ function Header() {
                 )
                 .slice(0, 5);
 
+    // Скролл для изменения фона
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Новый эффект: скрывать при скролле вниз, показывать при скролле вверх
+    useEffect(() => {
+        const handleHideHeader = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+                setHidden(true);
+            } else {
+                setHidden(false);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleHideHeader, { passive: true });
+        return () => window.removeEventListener("scroll", handleHideHeader);
     }, []);
 
     useEffect(() => {
@@ -62,7 +84,7 @@ function Header() {
 
     return (
         <>
-            <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
+            <header className={`header ${scrolled ? "header--scrolled" : ""} ${hidden ? "header--hidden" : ""}`}>
                 <div className="header__wrapper">
                     <div
                         className="header__logo"
@@ -105,9 +127,7 @@ function Header() {
                                     <div
                                         key={item.id}
                                         className="search-item"
-                                        onClick={() =>
-                                            handleSelectProduct(item.id)
-                                        }
+                                        onClick={() => handleSelectProduct(item.id)}
                                     >
                                         {item.title}
                                     </div>
