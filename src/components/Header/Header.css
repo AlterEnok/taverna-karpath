@@ -5,7 +5,7 @@ body {
 .header {
     position: sticky;
     top: 0;
-
+    will-change: transform;
     display: flex;
     justify-content: center;
 

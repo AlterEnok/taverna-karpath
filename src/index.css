@@ -17,16 +17,15 @@
 
 
 
-/* Додатковий захист від вилазів */
-body {
 
+body {
   font-family: var(--font-main);
   background: var(--bg-main);
-  position: relative;
+  overflow-x: hidden !important;
 }
 
 
-/* Виділення тексту */
+
 ::selection {
   background-color: #E09F61;
   color: var(--white);
