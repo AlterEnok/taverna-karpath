@@ -16,7 +16,9 @@
 
 
 
-
+html {
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font-main);
