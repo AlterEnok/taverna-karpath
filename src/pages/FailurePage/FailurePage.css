@@ -149,7 +149,7 @@
 @media (max-width: 767px) {
 
     .failure {
-        padding: 60px 16px;
+        padding: clamp(110px, 8vw, 120px) clamp(20px, 5vw, 40px);
     }
 
     .failure-actions {

@@ -294,6 +294,12 @@
 
 
 @media (max-width: 767px) {
+
+    .checkout {
+        overflow-x: hidden;
+        padding: clamp(110px, 8vw, 120px) clamp(20px, 5vw, 40px);
+    }
+
     .checkout-container {
         gap: clamp(40px, 8vw, 60px);
         width: 100%;
@@ -332,9 +338,7 @@
     }
 
 
-    .checkout {
-        overflow-x: hidden;
-    }
+
 }
 
 

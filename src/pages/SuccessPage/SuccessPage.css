@@ -142,7 +142,7 @@
 @media (max-width: 767px) {
 
     .success {
-        padding: clamp(60px, 12vw, 100px) 16px;
+        padding: clamp(110px, 8vw, 120px) clamp(20px, 5vw, 40px);
     }
 
     .success-icon {

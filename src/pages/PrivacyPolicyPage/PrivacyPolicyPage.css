@@ -43,7 +43,7 @@
     padding-left: 20px;
 }
 
-/* ссылки */
+
 .privacy-content a {
     color: var(--green-main);
     font-weight: 600;
@@ -106,7 +106,7 @@
 
 @media (max-width: 767px) {
     .privacy {
-        padding: 60px 15px;
+        padding: clamp(110px, 8vw, 120px) clamp(20px, 5vw, 40px);
     }
 
     .privacy-content {

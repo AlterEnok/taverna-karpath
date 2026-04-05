@@ -67,7 +67,7 @@
 
 @media (max-width: 767px) {
     .returns {
-        padding: 60px 15px;
+        padding: clamp(110px, 8vw, 120px) clamp(20px, 5vw, 40px);
     }
 
     .returns-content {
